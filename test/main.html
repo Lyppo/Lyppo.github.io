@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Test async & defer</title>
+    <script>
+        function logMessage(message) {
+            let p = document.createElement("p");
+            p.textContent = message;
+            document.body.appendChild(p);
+        }
+
+        function testScriptLoading() {
+            let scriptAsync = document.createElement('script');
+            scriptAsync.src = "async-test.js";
+            scriptAsync.async = true;
+
+            let scriptDefer = document.createElement('script');
+            scriptDefer.src = "defer-test.js";
+            scriptDefer.defer = true;
+
+            document.body.appendChild(scriptAsync);
+            document.body.appendChild(scriptDefer);
+
+            logMessage("Scripts async et defer ajoutés dynamiquement.");
+        }
+        testScriptLoading();
+    </script>
+</head>
+<body>
+    <h1>Résultats du test async/defer</h1>
+    <script>
+        logMessage("Script inline exécuté.");
+    </script>
+</body>
+</html>
