@@ -1,35 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test async & defer</title>
-    <script>
-        function logMessage(message) {
-            let p = document.createElement("p");
-            p.textContent = message;
-            document.body.appendChild(p);
-        }
-
-        function testScriptLoading() {
-            let scriptAsync = document.createElement('script');
-            scriptAsync.src = "async-test.js";
-            scriptAsync.async = true;
-
-            let scriptDefer = document.createElement('script');
-            scriptDefer.src = "defer-test.js";
-            scriptDefer.defer = true;
-
-            document.body.appendChild(scriptAsync);
-            document.body.appendChild(scriptDefer);
-
-            logMessage("Scripts async et defer ajoutés dynamiquement.");
-        }
-        testScriptLoading();
-    </script>
 </head>
 <body>
     <h1>Résultats du test async/defer</h1>
+
+    <!-- Chargement des scripts -->
+    <script src="async-test.js" async></script>
+    <script src="defer-test.js" defer></script>
+
     <script>
-        logMessage("Script inline exécuté.");
+        function addMessage(text) {
+            let p = document.createElement("p");
+            p.textContent = text;
+            document.body.appendChild(p);
+        }
     </script>
 </body>
 </html>
