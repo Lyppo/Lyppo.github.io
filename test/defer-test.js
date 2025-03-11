@@ -1,1 +1,3 @@
-document.body.innerHTML += "<p>Script defer chargé !</p>";
+let p = document.createElement("p");
+p.textContent = "Script defer chargé !";
+document.body.appendChild(p);
